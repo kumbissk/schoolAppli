@@ -13,7 +13,8 @@
 }
 
 .titre-apprenants{
-    margin-top: -40px;
+    /* margin-top: -40px; */
+    flex-wrap: wrap;
 }
 
 .btn-bouton-save{
