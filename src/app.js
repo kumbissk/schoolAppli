@@ -1,0 +1,10 @@
+//RECUPERATIONS DES ELEMENTS DU DOM
+const ListApprenant = document.getElementById("apprenants")
+const SchoolForm = document.querySelector("form")
+const inputPrenom = document.querySelector("input#prname")
+const inputTitle = document.querySelector("input#name")
+const niveauSelection = document.querySelector("select#niveau")
+const inputDescritif = document.querySelector("textarea#descritif")
+const btnAjouter = document.getElementById("btn")
+const btnEnregistrerModif = document.getElementById("btn-edit-form")
+const sauvegarderButon = document.getElementById("btn-save")

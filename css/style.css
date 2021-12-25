@@ -1,0 +1,31 @@
+.navbar-item{
+    list-style: none;
+}
+
+.titre-form{
+    margin-top: 30px;
+}
+
+.contenu-title{
+    background-color: #fef4f4;
+    margin-top: 15px;
+    padding: 45px;
+}
+
+.titre-apprenants{
+    margin-top: -40px;
+}
+
+.btn-bouton-save{
+    margin-left: 700px;
+    background-color:#0033cc;
+    color: #fff;
+    border-radius: 3px;
+    border: 2px;
+}
+
+.bouton-ajouter{
+    color: #fff;
+    border-radius: 4px;
+    border: 2px;
+}

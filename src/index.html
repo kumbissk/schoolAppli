@@ -12,23 +12,63 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-                <a class="nav-link" href="#">Accueil</a>
-                <p id="navbar-item-link">
-                    <a class="nav-link" href="listApp.html">Liste-Apprenants</a>
-                </p>
-            </div>
-
-            <!-- <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <div class="container-fluid">
                 <ul class="navbar-nav1">
                     <li class="navbar-item"><a class="nav-link" href="#">Accueil</a></li>
                 </ul>
                 <ul class="navbar-nav2">
                     <li class="navbar-item"><a class="nav-link" href="listApp.html">Liste-Apprenants</a></li>
                 </ul>
-            </div> -->
+            </div>
         </nav>
     </header>
 
+    <div class="container-fluid contenu-title">
+        <h1 class="text-center py-3">SCHOOL APP</h1>
+        <h3 class="titre-form">FORMULAIRE D'INSCRIPTION</h3>
+        <div class="row mb-3">
+            <div class="col-6">
+                <form action="#" method="post">
+                    <div class="mb-3">
+                        <label for="prenom" class="prenom">Prenom</label>
+                        <input type="text" class="from-prenom" id="prname" name="prname" placeholder="prenom">
+                    </div>
+                    <div class="mb-3">
+                        <label for="nom" class="nom">Nom</label>
+                        <input type="text" class="from-nom" id="name" name="name" placeholder="nom">
+                    </div>
+                    <div class="mb-3 stade">
+                        <label for="niveau" class="niveau">Niveau</label>
+                        <select name="etape" id="niveau">
+                            <option>Peut-mieux-faire!</option>
+                            <option>Abien!</option>
+                            <option>Tresbien!</option>
+                            <option>Excellent!</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <textarea name="descritif" id="descritif" class="from-descritif" cols="32" rows="5"></textarea>
+                        <!-- <label for="descritif" class="descritif" placeholder="Biographie de l'apprenants">Biographie de l'aprenants</label> -->
+                        <p id="limite-text">
+                            Contenu saisi
+                            <span id="text-progress">103</span>/130
+                        </p>
+                        <p id="text-restant"></p>
+                    </div>
+                    <button type="submit" id="btn" class="bouton-ajouter" style="background-color: #ce0033;">Ajouter</button>
+                    <button type="button" class="d-none btn btn-warning" id="btn-edit-form" class="bouton" >Modifier</button>
+                </form>
+            </div>
+            <div class="col-6">
+                <h3 class="titre-apprenants" id="apprenants">Apprenants</h3>
+            </div>
+        </div>
+        <button class="btn-bouton-save" id="btn-save">Sauvegarder</button>
+    </div>
+    
+    <!-- <h3 class="text-center py-3"></h3>
+    <div class="container d-flex justify-content-between flex-wrap">
+      <div class="row" id="apprenants"></div>
+    </div> -->
 </body>
 </html>
