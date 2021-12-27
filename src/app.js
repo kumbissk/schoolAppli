@@ -1,3 +1,5 @@
+// import {list} from "./script.js"
+
 //RECUPERATIONS DES ELEMENTS DU DOM
 const ListApprenant = document.getElementById("apprenants")
 const SchoolForm = document.querySelector("form")
@@ -9,6 +11,9 @@ const btnAjouter = document.getElementById("btn")
 const btnEnregistrerModif = document.getElementById("btn-edit-form")
 const sauvegarderButon = document.getElementById("btn-save")
 
+// console.log(list);
+
+
 // CREER LA FONCTION NOUS PERMETTANT D'AVOIR NOS CARTES
 const carteApprenant = (School) => {
     //creation school
@@ -17,13 +22,13 @@ const carteApprenant = (School) => {
     const idCard = "number-card" + School.id
     //insertion de la carte
     ListApprenant.insertAdjacentHTML("beforebegin",
-    `
+        `
     <div class="card m-2" style="width: 18rem;" id=${idCard}> 
     <div class="card-body">
       <h4 class="card-prenom">${School.prname}</h4>
       <h5 class="card-title">${School.name}</h5>
-      <p class="card-text">${School.descritif}</p>
       <h5 class="card-niveau">${School.niveau}</h5>
+      <p class="card-text">${School.descritif}</p>
       <button href="#" class="btn btn-success card-link" id=${idButtonModifier}>Modifier</button>
       <button href="#" class="btn btn-danger card-link" id=${idButtonSupprimer}>Supprimer</button>
     </div>
@@ -32,10 +37,11 @@ const carteApprenant = (School) => {
     //Evenemnts sur les boutons
     const btnModifier = document.getElementById(idButtonModifier)
     const btnSupprimer = document.getElementById(idButtonSupprimer)
-    
+
     //Ecouter l'evenement click sur les boutons
 
     btnModifier.addEventListener("click", (event) => {
+        event.preventDefault()
         btnAjouter.classList.add('d-none')
         btnEnregistrerModif.classList.remove('d-none')
 
@@ -45,22 +51,45 @@ const carteApprenant = (School) => {
         niveauSelection.value = School.niveau
         inputDescritif.value = School.descritif
 
-        btnSupprimer.addEventListener("click",(e)=>{
-        //    let index= School.indexof(School)
-        //     console.log(index);
-           
+        btnEnregistrerModif.addEventListener("click", (e) => {
+            e.preventDefault()
+            // alert("Coucou")
+            School.prname = inputPrenom.value;
+            School.name = inputTitle.value
+            School.niveau = niveauSelection.value
+            School.descritif = inputDescritif.value
+
+            let cardPrenom = document.querySelector(".card-prenom");
+            let cardTitle = document.querySelector(".card-title");
+            let cardNiveau = document.querySelector(".card-niveau");
+            let cardText = document.querySelector(".card-text");
+
+
+            cardPrenom.textContent = School.prname;
+            cardTitle.textContent = School.name;
+            cardNiveau.textContent = School.niveau;
+            cardText.textContent = School.descritif;
+
+            
         })
-    
+
+
+        // btnSupprimer.addEventListener("click",(e)=>{
+        // //    let index= School.indexof(School)
+        // //     console.log(index);
+
+        // })
+
         //on recuperer l'id de school
-      
+
         // console.log(inputPrenom);
 
     })
 
-    sauvegarderButon.addEventListener("click",(event)=>{
-        
-    })
-    
+    // sauvegarderButon.addEventListener("click",(event)=>{
+
+    // })
+
 }
 
 SchoolForm.addEventListener("submit", (event) => {
@@ -71,13 +100,13 @@ SchoolForm.addEventListener("submit", (event) => {
     const etapeSaisi = niveauSelection.value
     const bioSaisi = inputDescritif.value
 
-    if (prenameSaisi == "" || nameSaisi ==""||etapeSaisi=="") {
+    if (prenameSaisi == "" || nameSaisi == "" || etapeSaisi == "") {
         alert("champs obligatoire")
         return
     }
-   
+
     School = {
-        //generer
+        //generer id
         id: Date.now(),
         prname: prenameSaisi,
         name: nameSaisi,
@@ -90,6 +119,7 @@ SchoolForm.addEventListener("submit", (event) => {
         return
     } else {
         carteApprenant(School)
+
 
         //vider les champs
         inputPrenom.value = ""
@@ -116,3 +146,12 @@ inputDescritif.addEventListener("input", (evant) => {
 
 
 //Ajout du nouveau carte au niveau de la page
+
+
+
+
+
+
+
+
+
