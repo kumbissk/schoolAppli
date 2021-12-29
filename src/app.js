@@ -1,5 +1,9 @@
 // import {list} from "./script.js"
 
+// const API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MDIyNjUyMSwiZXhwIjoxOTU1ODAyNTIxfQ.z6PhT2grlS4pswE6JgUTDVH1vAvtT5YsbbyhioczIyA"
+
+// const API_URL = "https://tfmpxojignvaodqfjomk.supabase.co/rest/v1/apprenants"
+
 //RECUPERATIONS DES ELEMENTS DU DOM
 const ListApprenant = document.getElementById("apprenants")
 const SchoolForm = document.querySelector("form")
@@ -9,9 +13,8 @@ const niveauSelection = document.querySelector("select#niveau")
 const inputDescritif = document.querySelector("textarea#descritif")
 const btnAjouter = document.getElementById("btn")
 const btnEnregistrerModif = document.getElementById("btn-edit-form")
-const sauvegarderButon = document.getElementById("btn-save")
+const btnSauvegarde = document.getElementById("btn-save")
 
-// console.log(list);
 
 
 // CREER LA FONCTION NOUS PERMETTANT D'AVOIR NOS CARTES
@@ -22,7 +25,7 @@ const carteApprenant = (School) => {
     const idCard = "number-card" + School.id
     //insertion de la carte
     ListApprenant.insertAdjacentHTML("beforebegin",
-        `
+    `
     <div class="card m-2" style="width: 18rem;" id=${idCard}> 
     <div class="card-body">
       <h4 class="card-prenom">${School.prname}</h4>
@@ -32,11 +35,15 @@ const carteApprenant = (School) => {
       <button href="#" class="btn btn-success card-link" id=${idButtonModifier}>Modifier</button>
       <button href="#" class="btn btn-danger card-link" id=${idButtonSupprimer}>Supprimer</button>
     </div>
+      
     </div>`)
 
     //Evenemnts sur les boutons
     const btnModifier = document.getElementById(idButtonModifier)
     const btnSupprimer = document.getElementById(idButtonSupprimer)
+    const bouttonSauvegardeCard 
+    // const btnSauvegard = document.getElementById()
+
 
     //Ecouter l'evenement click sur les boutons
 
@@ -53,7 +60,6 @@ const carteApprenant = (School) => {
 
         btnEnregistrerModif.addEventListener("click", (e) => {
             e.preventDefault()
-            // alert("Coucou")
             School.prname = inputPrenom.value;
             School.name = inputTitle.value
             School.niveau = niveauSelection.value
@@ -69,9 +75,10 @@ const carteApprenant = (School) => {
             cardTitle.textContent = School.name;
             cardNiveau.textContent = School.niveau;
             cardText.textContent = School.descritif;
-
-            
+   
         })
+
+       
 
 
         // btnSupprimer.addEventListener("click",(e)=>{
@@ -86,9 +93,13 @@ const carteApprenant = (School) => {
 
     })
 
-    // sauvegarderButon.addEventListener("click",(event)=>{
+   
+    btnSauvegarde.addEventListener("click",(e)=>{
+        // e.preventDefault()
+        alert("coucou")
 
-    // })
+    })
+
 
 }
 
