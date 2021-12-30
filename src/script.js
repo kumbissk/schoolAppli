@@ -2,7 +2,7 @@
 
 const API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MDIyNjUyMSwiZXhwIjoxOTU1ODAyNTIxfQ.z6PhT2grlS4pswE6JgUTDVH1vAvtT5YsbbyhioczIyA"
 
-const API_URL = "https://tfmpxojignvaodqfjomk.supabase.co/rest/v1/apprenants"
+const API_URL = "https://tfmpxojignvaodqfjomk.supabase.co/rest/v1/schoolAppre"
 
 
 //RECUPERATIONS DES ELEMENTS DU DOM
@@ -94,12 +94,13 @@ btnSauvegarde.addEventListener("click", (event) => {
         let nom = carte.querySelector(".card-title").textContent
         let niveau = carte.querySelector(".card-niveau").textContent
         let bio = carte.querySelector(".card-text").textContent
+        
 
         // Initialize the JS client
 
         // const supabase = createClient([API_URL], [API_KEY])
 
-        //insert dans la base
+        // insert dans la base
         // const { data, error } = await supabase
         //     .from('apprenants')
         //     .insert([

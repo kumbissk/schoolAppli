@@ -1,0 +1,23 @@
+.titre-competence{
+    text-transform: uppercase;
+    /* text-align: center; */
+    
+}
+
+.nom-competence{
+    font-weight: bold;
+    margin-left: 30px;
+}
+
+.bar{
+    margin-left: 30px;
+}
+
+
+.barre{
+    background-color: #ffe6e6;
+}
+
+.second-barre{
+    background-color: #ffe6e6;
+}
