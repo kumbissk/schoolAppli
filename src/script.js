@@ -4,7 +4,7 @@ const API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdC
 
 const API_URL = "https://tfmpxojignvaodqfjomk.supabase.co/rest/v1/schoolAppre"
 
-
+const tab=[]
 //RECUPERATIONS DES ELEMENTS DU DOM
 const ListApprenant = document.getElementById("apprenants")
 const SchoolForm = document.querySelector("form")
@@ -95,6 +95,44 @@ btnSauvegarde.addEventListener("click", (event) => {
         let niveau = carte.querySelector(".card-niveau").textContent
         let bio = carte.querySelector(".card-text").textContent
         
+        //on prend l'id de school
+        fetch(API_URL + "?id=eq." + School.id,{
+            method:"PATCH",
+            headers: {
+                apikey: API_KEY,
+                "Content-Type": "application/json",
+                "Prefer": "return=representation" ,
+            },
+            body: JSON.stringify(carte),
+        })
+          .then((response) => response.json())
+
+          //mettre les informations sous forme d'objet
+
+        nouveauCarteApprenant = {
+            prenom: prenom,
+            nom: nom,
+            niveau: niveau,
+            descritif: bio
+          }
+          console.log(nouveauCarteApprenant.prenom)
+          //envoyer les donnees vers la base
+          fetch(API_URL, {
+              method:"POST",
+              headers: {
+                  apikey: API_KEY,
+                  "Content-Type": "application/json",
+                  "Prefer": "return=representation",
+              },
+              body: JSON.stringify(nouveauCarteApprenant)
+          })
+            .then((response)=> response.json())
+            .then((data)=>{
+                SchoolCreeNiveauAPI = data[0]
+                //
+                window.location.href="listApp.html"
+                
+            })
 
         // Initialize the JS client
 
