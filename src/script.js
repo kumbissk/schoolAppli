@@ -115,7 +115,6 @@ btnSauvegarde.addEventListener("click", (event) => {
             niveau: niveau,
             descritif: bio
           }
-          console.log(nouveauCarteApprenant.prenom)
           //envoyer les donnees vers la base
           fetch(API_URL, {
               method:"POST",
@@ -131,7 +130,7 @@ btnSauvegarde.addEventListener("click", (event) => {
                 SchoolCreeNiveauAPI = data[0]
                 //
                 window.location.href="listApp.html"
-                
+
             })
 
         // Initialize the JS client
@@ -200,42 +199,6 @@ inputDescritif.addEventListener("input", (evant) => {
     textRestant.textContent = "il vous reste " + reste
 })
 })
-
-//formulaire
-// SchoolForm.addEventListener("submit", (event) => {
-//     event.preventDefault()
-//     //recuperons les infos saisies
-//     const prenameSaisi = inputPrenom.value
-//     const nameSaisi = inputTitle.value
-//     const etapeSaisi = niveauSelection.value
-//     const bioSaisi = inputDescritif.value
-
-//     if (prenameSaisi == "" || nameSaisi == "" || etapeSaisi == "") {
-//         alert("champs obligatoire")
-//         return
-//     }
-//     // objet
-//     School = {
-//         //generer id
-//         id: Date.now(),
-//         prname: prenameSaisi,
-//         name: nameSaisi,
-//         niveau: etapeSaisi,
-//         descritif: bioSaisi
-//     }
-
-//     if (bioSaisi.trim().length < 10) {
-//         alert("Merci de remplir les bonne informations!")
-//         return
-//     } else {
-//         carteApprenant(School)
-
-//         //vider les champs
-//         inputPrenom.value = ""
-//         inputTitle.value = ""
-//         niveauSelection.value = ""
-//         inputDescritif.value = ""
-//     }
 
 //     //envoyer les donnees vers supabase
 //     // fetch(API_URL, {
