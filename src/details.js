@@ -14,7 +14,22 @@ window.addEventListener("DOMContentLoaded", (event) => {
         .then((response) => response.json())
         .then((School) => {
             School.forEach((School) => {
-                carteApprenant(School)
+                idApprenant()
             })
         })
+
+    // fetch({API_URL},"?id=eq.",{
+    //   headers: {
+    //     apiKey: API_KEY,
+    //   },
+    // })
+    //   .then((response) => response.json())
+    //   .then((School) => {
+    //     //
+    //     idApprenant(School[0])
+    //     console.log(School)
+    //     console.log(School[0].nom)
+    //   });
+
+
 })
